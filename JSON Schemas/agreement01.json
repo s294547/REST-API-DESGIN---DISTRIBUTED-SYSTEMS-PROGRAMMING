@@ -1,0 +1,8 @@
+{
+    "$schema": "./agreement_schema.json",
+    "filmId": 1,
+    "reviewersId": [1,2],
+    "draftId": 2,
+    "authorId": 1,
+    "agreement": true
+  }

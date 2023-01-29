@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id" : "http://www.my-schema.com/draft_schema.json",
+    "title": "Draft",
+    "description": "JSON Schema for Draft data structures",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "$schema": {
+        "type": "string",
+        "description": "path to the JSON Schema to use for the validation of the data structure"
+      },
+      "filmId": {
+        "type": "integer",
+        "description": "unique identifier of the film for which this review invitation has been issued"
+      },
+      "reviewersId": {
+        "type": "array",
+        "items":{
+            "type": "integer"
+        },
+        "description": "array of unique identifiers of the the users who have received this review invitation"
+      },
+      "draftId": {
+        "type": "integer",
+        "description": "unique identifier of the draft associated to a specific review"
+      },
+      "authorId": {
+        "type": "integer",
+        "description": "unique identifier of the user that issued the draft associated to a specific review"
+      },  
+      "rating": {
+        "type": "integer",
+        "description": "the rating the reviewer has given to the film",
+        "minimum": 1,
+        "maximum": 10
+      },
+      "review": {
+        "type": "string",
+        "description": "a textual description of the review",
+        "maxLength": 1000
+      },
+      "closed":{
+        "type": "boolean",
+        "default": "false",
+        "description": "a boolean value to specify if a review draft is closed or not"
+      }
+    },
+    "required": ["filmId", "reviewersId", "draftId", "authorId", "rating", "review", "closed"]
+  }
